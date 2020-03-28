@@ -25,7 +25,7 @@ function saveTask(e){
        tasks.push(task);
        localStorage.setItem('tasks', JSON.stringify(tasks));
     }
-
+    getTask();
     e.preventDefault();
 }
 
@@ -43,10 +43,15 @@ function getTask (){
         tasksView.innerHTML+=`<div class="card mb-4">
                                  <div class="card-body">
                                  <p>${title} - ${description}</p>
-                                 <a class="btn btn-danger">Delete</a>
+                                 <a class="btn btn-danger" onClick="deleteTask('${title}')">
+                                 Delete</a>
                                  </div>
                                  </div>`
    }
 }
 
 getTask();
+
+function deleteTask(title){
+    console.log(title);
+}
